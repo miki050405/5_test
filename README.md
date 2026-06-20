@@ -1,84 +1,60 @@
 REST API для простого блога
+
 ## Установка
-
 1. Склонируйте репозиторий
-
 ```bash
-git clone <ссылка_на_репозиторий>
-cd 5_TEST
+git clone https://github.com/miki050405/5_test
+cd 5_test
 ```
 
-2. Создать виртуальное окружение
-
+2. Создайте виртуальное окружение
 ```bash
 python -m venv venv
 ```
 
-3. Активировать виртуальное окружение
-
-Windows:
-
+3. Активируйте виртуальное окружение
 ```bash
+#Windows:
 venv\Scripts\activate
+# macOS / Linux:
+source venv/bin/activate
 ```
 
-4. Установить зависимости
-
+4. Установите зависимости
 ```bash
 pip install -r requirements.txt
 ```
 
-5. Создать файл .env
-
+5. Создайте файл .env для хранения параметров бд, секретного ключа и DEBUG
 ```env
-DB_NAME=blog
-DB_USER=postgres
-DB_PASSWORD=your_password
-DB_HOST=localhost
-DB_PORT=5432
+DB_NAME=название бд
+DB_USER=имя пользователя бд
+DB_PASSWORD=пароль
+DB_HOST=хост
+DB_PORT=порт (обычно 5432)
 
-SECRET=your_secret_key
-DEBUG=on
+SECRET=ваш секретный ключ
+
+DEBUG=состояние DEBUG (on если True, off если False)
 ```
 
-6. Применить миграции
-
+6. Примените миграции
 ```bash
 python manage.py migrate
 ```
 
-7. Создать суперпользователя
-
+7. Создайте суперпользователя
 ```bash
 python manage.py createsuperuser
 ```
 
-8. Запустить сервер
-
+8. Запустите сервер
 ```bash
 python manage.py runserver
 ```
 
 ## Документация
-
 Swagger:
-
 ```text
 http://127.0.0.1:8000/swagger/
-```
-
-## Аутентификация
-
-Используется Token Authentication.
-
-Получить токен:
-
-```text
-POST /api/v1/users/authorization/
-```
-
-Для защищённых запросов необходимо передавать заголовок:
-
-```text
-Authorization: Token <your_token>
 ```
